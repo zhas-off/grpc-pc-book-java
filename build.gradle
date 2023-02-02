@@ -20,6 +20,9 @@ dependencies {
     // https://mvnrepository.com/artifact/io.grpc/grpc-all
     implementation group: 'io.grpc', name: 'grpc-all', version: '1.52.1'
 
+    // https://mvnrepository.com/artifact/io.grpc/grpc-services
+    runtimeOnly group: 'io.grpc', name: 'grpc-services', version: '1.52.1'
+
     // https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api
     implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
 }
