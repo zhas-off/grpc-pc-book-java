@@ -138,7 +138,7 @@ public class Generator {
     }
 
     public double NewLaptopScore() {
-        return randomInt(1, 10);
+        return randomInt(1, 5);
     }
 
     private Timestamp timestampNow() {

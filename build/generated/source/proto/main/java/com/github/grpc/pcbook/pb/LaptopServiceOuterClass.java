@@ -24,6 +24,41 @@ public final class LaptopServiceOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_grpcpcbook_CreateLaptopResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_grpcpcbook_SearchLaptopRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_grpcpcbook_SearchLaptopRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_grpcpcbook_SearchLaptopResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_grpcpcbook_SearchLaptopResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_grpcpcbook_UploadImageRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_grpcpcbook_UploadImageRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_grpcpcbook_ImageInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_grpcpcbook_ImageInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_grpcpcbook_UploadImageResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_grpcpcbook_UploadImageResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_grpcpcbook_RateLaptopRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_grpcpcbook_RateLaptopRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_grpcpcbook_RateLaptopResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_grpcpcbook_RateLaptopResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -34,18 +69,37 @@ public final class LaptopServiceOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\024laptop_service.proto\022\ngrpcpcbook\032\024lapt" +
-      "op_message.proto\"9\n\023CreateLaptopRequest\022" +
-      "\"\n\006laptop\030\001 \001(\0132\022.grpcpcbook.Laptop\"\"\n\024C" +
-      "reateLaptopResponse\022\n\n\002id\030\001 \001(\t2d\n\rLapto" +
-      "pService\022S\n\014CreateLaptop\022\037.grpcpcbook.Cr" +
-      "eateLaptopRequest\032 .grpcpcbook.CreateLap" +
-      "topResponse\"\000B#\n\031com.github.grpc.pcbook." +
-      "pbP\001Z\004./pbb\006proto3"
+      "op_message.proto\032\024filter_message.proto\"9" +
+      "\n\023CreateLaptopRequest\022\"\n\006laptop\030\001 \001(\0132\022." +
+      "grpcpcbook.Laptop\"\"\n\024CreateLaptopRespons" +
+      "e\022\n\n\002id\030\001 \001(\t\"9\n\023SearchLaptopRequest\022\"\n\006" +
+      "filter\030\001 \001(\0132\022.grpcpcbook.Filter\":\n\024Sear" +
+      "chLaptopResponse\022\"\n\006laptop\030\001 \001(\0132\022.grpcp" +
+      "cbook.Laptop\"Y\n\022UploadImageRequest\022%\n\004in" +
+      "fo\030\001 \001(\0132\025.grpcpcbook.ImageInfoH\000\022\024\n\nchu" +
+      "nk_data\030\002 \001(\014H\000B\006\n\004data\"2\n\tImageInfo\022\021\n\t" +
+      "laptop_id\030\001 \001(\t\022\022\n\nimage_type\030\002 \001(\t\"/\n\023U" +
+      "ploadImageResponse\022\n\n\002id\030\001 \001(\t\022\014\n\004size\030\002" +
+      " \001(\r\"5\n\021RateLaptopRequest\022\021\n\tlaptop_id\030\001" +
+      " \001(\t\022\r\n\005score\030\002 \001(\001\"S\n\022RateLaptopRespons" +
+      "e\022\021\n\tlaptop_id\030\001 \001(\t\022\023\n\013rated_count\030\002 \001(" +
+      "\r\022\025\n\raverage_score\030\003 \001(\0012\342\002\n\rLaptopServi" +
+      "ce\022S\n\014CreateLaptop\022\037.grpcpcbook.CreateLa" +
+      "ptopRequest\032 .grpcpcbook.CreateLaptopRes" +
+      "ponse\"\000\022U\n\014SearchLaptop\022\037.grpcpcbook.Sea" +
+      "rchLaptopRequest\032 .grpcpcbook.SearchLapt" +
+      "opResponse\"\0000\001\022R\n\013UploadImage\022\036.grpcpcbo" +
+      "ok.UploadImageRequest\032\037.grpcpcbook.Uploa" +
+      "dImageResponse\"\000(\001\022Q\n\nRateLaptop\022\035.grpcp" +
+      "cbook.RateLaptopRequest\032\036.grpcpcbook.Rat" +
+      "eLaptopResponse\"\000(\0010\001B#\n\031com.github.grpc" +
+      ".pcbook.pbP\001Z\004./pbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.github.grpc.pcbook.pb.LaptopMessage.getDescriptor(),
+          com.github.grpc.pcbook.pb.FilterMessage.getDescriptor(),
         });
     internal_static_grpcpcbook_CreateLaptopRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -59,7 +113,50 @@ public final class LaptopServiceOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_grpcpcbook_CreateLaptopResponse_descriptor,
         new java.lang.String[] { "Id", });
+    internal_static_grpcpcbook_SearchLaptopRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_grpcpcbook_SearchLaptopRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_grpcpcbook_SearchLaptopRequest_descriptor,
+        new java.lang.String[] { "Filter", });
+    internal_static_grpcpcbook_SearchLaptopResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_grpcpcbook_SearchLaptopResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_grpcpcbook_SearchLaptopResponse_descriptor,
+        new java.lang.String[] { "Laptop", });
+    internal_static_grpcpcbook_UploadImageRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_grpcpcbook_UploadImageRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_grpcpcbook_UploadImageRequest_descriptor,
+        new java.lang.String[] { "Info", "ChunkData", "Data", });
+    internal_static_grpcpcbook_ImageInfo_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_grpcpcbook_ImageInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_grpcpcbook_ImageInfo_descriptor,
+        new java.lang.String[] { "LaptopId", "ImageType", });
+    internal_static_grpcpcbook_UploadImageResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_grpcpcbook_UploadImageResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_grpcpcbook_UploadImageResponse_descriptor,
+        new java.lang.String[] { "Id", "Size", });
+    internal_static_grpcpcbook_RateLaptopRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_grpcpcbook_RateLaptopRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_grpcpcbook_RateLaptopRequest_descriptor,
+        new java.lang.String[] { "LaptopId", "Score", });
+    internal_static_grpcpcbook_RateLaptopResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_grpcpcbook_RateLaptopResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_grpcpcbook_RateLaptopResponse_descriptor,
+        new java.lang.String[] { "LaptopId", "RatedCount", "AverageScore", });
     com.github.grpc.pcbook.pb.LaptopMessage.getDescriptor();
+    com.github.grpc.pcbook.pb.FilterMessage.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

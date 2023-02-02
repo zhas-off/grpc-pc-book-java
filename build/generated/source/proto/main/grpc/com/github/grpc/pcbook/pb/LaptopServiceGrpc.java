@@ -46,6 +46,99 @@ public final class LaptopServiceGrpc {
     return getCreateLaptopMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.SearchLaptopRequest,
+      com.github.grpc.pcbook.pb.SearchLaptopResponse> getSearchLaptopMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SearchLaptop",
+      requestType = com.github.grpc.pcbook.pb.SearchLaptopRequest.class,
+      responseType = com.github.grpc.pcbook.pb.SearchLaptopResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.SearchLaptopRequest,
+      com.github.grpc.pcbook.pb.SearchLaptopResponse> getSearchLaptopMethod() {
+    io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.SearchLaptopRequest, com.github.grpc.pcbook.pb.SearchLaptopResponse> getSearchLaptopMethod;
+    if ((getSearchLaptopMethod = LaptopServiceGrpc.getSearchLaptopMethod) == null) {
+      synchronized (LaptopServiceGrpc.class) {
+        if ((getSearchLaptopMethod = LaptopServiceGrpc.getSearchLaptopMethod) == null) {
+          LaptopServiceGrpc.getSearchLaptopMethod = getSearchLaptopMethod =
+              io.grpc.MethodDescriptor.<com.github.grpc.pcbook.pb.SearchLaptopRequest, com.github.grpc.pcbook.pb.SearchLaptopResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SearchLaptop"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.github.grpc.pcbook.pb.SearchLaptopRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.github.grpc.pcbook.pb.SearchLaptopResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new LaptopServiceMethodDescriptorSupplier("SearchLaptop"))
+              .build();
+        }
+      }
+    }
+    return getSearchLaptopMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.UploadImageRequest,
+      com.github.grpc.pcbook.pb.UploadImageResponse> getUploadImageMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UploadImage",
+      requestType = com.github.grpc.pcbook.pb.UploadImageRequest.class,
+      responseType = com.github.grpc.pcbook.pb.UploadImageResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.UploadImageRequest,
+      com.github.grpc.pcbook.pb.UploadImageResponse> getUploadImageMethod() {
+    io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.UploadImageRequest, com.github.grpc.pcbook.pb.UploadImageResponse> getUploadImageMethod;
+    if ((getUploadImageMethod = LaptopServiceGrpc.getUploadImageMethod) == null) {
+      synchronized (LaptopServiceGrpc.class) {
+        if ((getUploadImageMethod = LaptopServiceGrpc.getUploadImageMethod) == null) {
+          LaptopServiceGrpc.getUploadImageMethod = getUploadImageMethod =
+              io.grpc.MethodDescriptor.<com.github.grpc.pcbook.pb.UploadImageRequest, com.github.grpc.pcbook.pb.UploadImageResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UploadImage"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.github.grpc.pcbook.pb.UploadImageRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.github.grpc.pcbook.pb.UploadImageResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new LaptopServiceMethodDescriptorSupplier("UploadImage"))
+              .build();
+        }
+      }
+    }
+    return getUploadImageMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.RateLaptopRequest,
+      com.github.grpc.pcbook.pb.RateLaptopResponse> getRateLaptopMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RateLaptop",
+      requestType = com.github.grpc.pcbook.pb.RateLaptopRequest.class,
+      responseType = com.github.grpc.pcbook.pb.RateLaptopResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.RateLaptopRequest,
+      com.github.grpc.pcbook.pb.RateLaptopResponse> getRateLaptopMethod() {
+    io.grpc.MethodDescriptor<com.github.grpc.pcbook.pb.RateLaptopRequest, com.github.grpc.pcbook.pb.RateLaptopResponse> getRateLaptopMethod;
+    if ((getRateLaptopMethod = LaptopServiceGrpc.getRateLaptopMethod) == null) {
+      synchronized (LaptopServiceGrpc.class) {
+        if ((getRateLaptopMethod = LaptopServiceGrpc.getRateLaptopMethod) == null) {
+          LaptopServiceGrpc.getRateLaptopMethod = getRateLaptopMethod =
+              io.grpc.MethodDescriptor.<com.github.grpc.pcbook.pb.RateLaptopRequest, com.github.grpc.pcbook.pb.RateLaptopResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RateLaptop"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.github.grpc.pcbook.pb.RateLaptopRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.github.grpc.pcbook.pb.RateLaptopResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new LaptopServiceMethodDescriptorSupplier("RateLaptop"))
+              .build();
+        }
+      }
+    }
+    return getRateLaptopMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -101,6 +194,27 @@ public final class LaptopServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateLaptopMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void searchLaptop(com.github.grpc.pcbook.pb.SearchLaptopRequest request,
+        io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.SearchLaptopResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSearchLaptopMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.UploadImageRequest> uploadImage(
+        io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.UploadImageResponse> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getUploadImageMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.RateLaptopRequest> rateLaptop(
+        io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.RateLaptopResponse> responseObserver) {
+      return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getRateLaptopMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -110,6 +224,27 @@ public final class LaptopServiceGrpc {
                 com.github.grpc.pcbook.pb.CreateLaptopRequest,
                 com.github.grpc.pcbook.pb.CreateLaptopResponse>(
                   this, METHODID_CREATE_LAPTOP)))
+          .addMethod(
+            getSearchLaptopMethod(),
+            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+              new MethodHandlers<
+                com.github.grpc.pcbook.pb.SearchLaptopRequest,
+                com.github.grpc.pcbook.pb.SearchLaptopResponse>(
+                  this, METHODID_SEARCH_LAPTOP)))
+          .addMethod(
+            getUploadImageMethod(),
+            io.grpc.stub.ServerCalls.asyncClientStreamingCall(
+              new MethodHandlers<
+                com.github.grpc.pcbook.pb.UploadImageRequest,
+                com.github.grpc.pcbook.pb.UploadImageResponse>(
+                  this, METHODID_UPLOAD_IMAGE)))
+          .addMethod(
+            getRateLaptopMethod(),
+            io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
+              new MethodHandlers<
+                com.github.grpc.pcbook.pb.RateLaptopRequest,
+                com.github.grpc.pcbook.pb.RateLaptopResponse>(
+                  this, METHODID_RATE_LAPTOP)))
           .build();
     }
   }
@@ -135,6 +270,30 @@ public final class LaptopServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateLaptopMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void searchLaptop(com.github.grpc.pcbook.pb.SearchLaptopRequest request,
+        io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.SearchLaptopResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getSearchLaptopMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.UploadImageRequest> uploadImage(
+        io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.UploadImageResponse> responseObserver) {
+      return io.grpc.stub.ClientCalls.asyncClientStreamingCall(
+          getChannel().newCall(getUploadImageMethod(), getCallOptions()), responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.RateLaptopRequest> rateLaptop(
+        io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.RateLaptopResponse> responseObserver) {
+      return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
+          getChannel().newCall(getRateLaptopMethod(), getCallOptions()), responseObserver);
+    }
   }
 
   /**
@@ -156,6 +315,14 @@ public final class LaptopServiceGrpc {
     public com.github.grpc.pcbook.pb.CreateLaptopResponse createLaptop(com.github.grpc.pcbook.pb.CreateLaptopRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateLaptopMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.github.grpc.pcbook.pb.SearchLaptopResponse> searchLaptop(
+        com.github.grpc.pcbook.pb.SearchLaptopRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getSearchLaptopMethod(), getCallOptions(), request);
     }
   }
 
@@ -183,6 +350,9 @@ public final class LaptopServiceGrpc {
   }
 
   private static final int METHODID_CREATE_LAPTOP = 0;
+  private static final int METHODID_SEARCH_LAPTOP = 1;
+  private static final int METHODID_UPLOAD_IMAGE = 2;
+  private static final int METHODID_RATE_LAPTOP = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -205,6 +375,10 @@ public final class LaptopServiceGrpc {
           serviceImpl.createLaptop((com.github.grpc.pcbook.pb.CreateLaptopRequest) request,
               (io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.CreateLaptopResponse>) responseObserver);
           break;
+        case METHODID_SEARCH_LAPTOP:
+          serviceImpl.searchLaptop((com.github.grpc.pcbook.pb.SearchLaptopRequest) request,
+              (io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.SearchLaptopResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -215,6 +389,12 @@ public final class LaptopServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_UPLOAD_IMAGE:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.uploadImage(
+              (io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.UploadImageResponse>) responseObserver);
+        case METHODID_RATE_LAPTOP:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.rateLaptop(
+              (io.grpc.stub.StreamObserver<com.github.grpc.pcbook.pb.RateLaptopResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -267,6 +447,9 @@ public final class LaptopServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new LaptopServiceFileDescriptorSupplier())
               .addMethod(getCreateLaptopMethod())
+              .addMethod(getSearchLaptopMethod())
+              .addMethod(getUploadImageMethod())
+              .addMethod(getRateLaptopMethod())
               .build();
         }
       }
