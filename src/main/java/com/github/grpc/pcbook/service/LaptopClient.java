@@ -4,11 +4,15 @@ import com.github.grpc.pcbook.pb.*;
 import com.github.grpc.pcbook.sample.Generator;
 import com.google.protobuf.ByteString;
 import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
+import io.grpc.netty.GrpcSslContexts;
+import io.grpc.netty.NettyChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import io.netty.handler.ssl.SslContext;
 
+import javax.net.ssl.SSLException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Iterator;
@@ -25,9 +29,9 @@ public class LaptopClient {
     private final LaptopServiceGrpc.LaptopServiceBlockingStub blockingStub;
     private final LaptopServiceGrpc.LaptopServiceStub asyncStub;
 
-    public LaptopClient(String host, int port) {
-        channel = ManagedChannelBuilder.forAddress(host, port)
-                .usePlaintext()
+    public LaptopClient(String host, int port, SslContext sslContext) {
+        channel = NettyChannelBuilder.forAddress(host, port)
+                .sslContext(sslContext)
                 .build();
 
         blockingStub = LaptopServiceGrpc.newBlockingStub(channel);
@@ -87,7 +91,7 @@ public class LaptopClient {
         final CountDownLatch finishLatch = new CountDownLatch(1);
 
         StreamObserver<UploadImageRequest> requestObserver = asyncStub.withDeadlineAfter(5, TimeUnit.SECONDS)
-                .uploadImage(new StreamObserver<UploadImageResponse>() {
+                .uploadImage(new StreamObserver<>() {
                     @Override
                     public void onNext(UploadImageResponse response) {
                         logger.info("receive response:\n" + response);
@@ -152,16 +156,17 @@ public class LaptopClient {
         }
     }
 
-    public void rateLaptop(String[] laptopIDs, double[] scores) throws InterruptedException {
+    public void rateLaptop(String[] laptopIDs, double[] scores) {
         CountDownLatch finishLatch = new CountDownLatch(1);
         StreamObserver<RateLaptopRequest> requestObserver = asyncStub.withDeadlineAfter(5, TimeUnit.SECONDS)
-                .rateLaptop(new StreamObserver<RateLaptopResponse>() {
+                .rateLaptop(new StreamObserver<>() {
                     @Override
                     public void onNext(RateLaptopResponse response) {
                         logger.info("laptop rated: id = " + response.getLaptopId() +
                                 ", count = " + response.getRatedCount() +
                                 ", average = " + response.getAverageScore());
                     }
+
                     @Override
                     public void onError(Throwable t) {
                         logger.log(Level.SEVERE, "rate laptop failed: " + t.getMessage());
@@ -221,7 +226,7 @@ public class LaptopClient {
         client.uploadImage(laptop.getId(), "tmp/laptop.jpg");
     }
 
-    public static void testRateLaptop(LaptopClient client, Generator generator) throws InterruptedException {
+    public static void testRateLaptop(LaptopClient client, Generator generator) {
         int n = 3;
         String[] laptopIDs = new String[n];
 
@@ -248,8 +253,19 @@ public class LaptopClient {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        LaptopClient client = new LaptopClient("0.0.0.0", 8082);
+    public static SslContext loadTLSCredentials() throws SSLException {
+        File serverCACertFile = new File("cert/ca-cert.pem");
+        File clientCertFile = new File("cert/client-cert.pem");
+        File clientKeyFile = new File("cert/client-key.pem");
+
+        return GrpcSslContexts.forClient()
+                .keyManager(clientCertFile, clientKeyFile)
+                .trustManager(serverCACertFile)
+                .build();
+    }
+    public static void main(String[] args) throws InterruptedException, SSLException {
+        SslContext sslContext = LaptopClient.loadTLSCredentials();
+        LaptopClient client = new LaptopClient("0.0.0.0", 8082, sslContext);
         Generator generator = new Generator();
 
         try {
